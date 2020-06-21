@@ -10,6 +10,8 @@ This is a software for gathering data from your HoMM3 game and showing it in OBS
 
 ## How to use it?
 
+Go to [Releases page](https://github.com/averrin/homm-monitor/releases) and download latest.
+
 ## For commentator:
 
 ### Start server
@@ -20,13 +22,9 @@ Just double click on "HoMM-Monitor\comentator.exe"
 
 Type a human-readable name for your match and press the "Create Match" button. Then copy appeared Match ID and send it to your players.
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/65ff6950-0ebe-45cd-a1bd-b341a1cb4e15/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/65ff6950-0ebe-45cd-a1bd-b341a1cb4e15/Untitled.png)
-
 ### Do some tweaks
 
 You can control some HUD settings at the "Overlay settings" tab. There are only two options for now. Also, you can see timestamps for players' updates at the "Status" tab.
-
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/cfdaa5ee-c41e-4fca-a140-5ed52a39c87d/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/cfdaa5ee-c41e-4fca-a140-5ed52a39c87d/Untitled.png)
 
 ### Setup OBS overlay
 
@@ -55,8 +53,6 @@ Just double click on "HoMM-Monitor\player.exe"
 ### Connect to match
 
 Got match ID from your commentator and place it to the input on "Match" tab. Also you should specify your name for this match (it will display on commentator's HUD) and press "Connect".
-
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/bef2d578-5299-4e77-a87d-2732a29e58e4/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/bef2d578-5299-4e77-a87d-2732a29e58e4/Untitled.png)
 
 ### Play
 
