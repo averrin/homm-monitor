@@ -1,0 +1,21 @@
+<html>
+<head>
+  <style>
+    body {
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div id="single">
+  </div>
+
+  <script src="../reporter.js"></script>
+  <script>
+      const urlParams = new URLSearchParams(window.location.search);
+      const key = urlParams.get('key');
+      window.onUpdate = function(res){
+        document.querySelector("#single").innerText = `${res[key]}`;
+    };
+</script>
+</body>

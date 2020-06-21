@@ -1,0 +1,58 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="commentator_hud.css">
+  <style>
+  </style>
+</head>
+<body>
+    <div class="row townsContainer">
+    <div id="townsContainer-0">
+        <div class="column" id="townsHeader">
+          <div>Towns: <span id="townsCount" class='value'>0</span> </div>
+          <div class="row headerItems">
+            <div class="row headerItem"><div class="resource gold"></div><span id="gold" class='value'>0</span></div>
+            <div class="row headerItem"><div class="resource wood"></div><span id="wood" class='value'>0</span></div>
+            <div class="row headerItem"><div class="resource ore"></div><span id="ore" class='value'>0</span></div>
+          </div>
+          <div class="row headerItems">
+            <div class="row headerItem"><div class="resource mercury"></div><span id="mercury" class='value'>0</span></div>
+            <div class="row headerItem"><div class="resource sulfur"></div><span id="sulfur" class='value'>0</span></div>
+            <div class="row headerItem"><div class="resource crystal"></div><span id="crystal" class='value'>0</span></div>
+            <div class="row headerItem"><div class="resource gems"></div><span id="gems" class='value'>0</span></div>
+          </div>
+        </div>
+      
+        <div id="towns" class="column"></div>
+      </div>
+      <div id="townsContainer-1">
+        <div class="column" id="townsHeader">
+          <div>Towns: <span id="townsCount" class='value'>0</span> </div>
+          <div class="row headerItems">
+            <div class="row headerItem"><div class="resource gold"></div><span id="gold" class='value'>0</span></div>
+            <div class="row headerItem"><div class="resource wood"></div><span id="wood" class='value'>0</span></div>
+            <div class="row headerItem"><div class="resource ore"></div><span id="ore" class='value'>0</span></div>
+          </div>
+          <div class="row headerItems">
+            <div class="row headerItem"><div class="resource mercury"></div><span id="mercury" class='value'>0</span></div>
+            <div class="row headerItem"><div class="resource sulfur"></div><span id="sulfur" class='value'>0</span></div>
+            <div class="row headerItem"><div class="resource crystal"></div><span id="crystal" class='value'>0</span></div>
+            <div class="row headerItem"><div class="resource gems"></div><span id="gems" class='value'>0</span></div>
+          </div>
+        </div>
+      
+        <div id="towns" class="column"></div>
+      </div>
+    </div>
+
+  <script src="../reporter.js"></script>
+  <script src="../towns.js"></script>
+  <script>
+    var colors = ["red", "blue", "biege", "green", "orange", "purple", "teal", "pink"];
+      window.onUpdate = function(state){
+        for (let [i, report] of Object.entries(state.reports)) {
+            let player = document.querySelector(`#townsContainer-${report.color}`);
+            fillTowns(report, player);
+        }
+    };
+</script>
+</body>

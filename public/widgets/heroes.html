@@ -1,0 +1,30 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="commentator_hud.css">
+  <style>
+  </style>
+</head>
+<body>
+  <div id="heroesContainer-0">
+    <div class="column" id="heroesHeader">
+      <div>Heroes: <span id="heroesCount" class='value'>0</span> </div>
+      <div class="row headerItems">
+        <div class="row headerItem">MP spent: <span id="mpSpent" class='value'>0</span></div>
+        <div class="row headerItem">Exp earned: <span id="expEarned" class='value'>0</span></div>
+      </div>
+    </div>
+  
+    <div id="heroes" class="column"></div>
+  </div>
+
+
+  <script src="../reporter.js"></script>
+  <script src="../heroes.js"></script>
+  <script>
+    var colors = ["red", "blue", "biege", "green", "orange", "purple", "teal", "pink"];
+      window.onUpdate = function(report){
+        let player = document.querySelector("#heroesContainer-0");
+        fillHeroes(report, player);
+    };
+</script>
+</body>

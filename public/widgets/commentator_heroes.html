@@ -1,0 +1,46 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="commentator_hud.css">
+  <style>
+  </style>
+</head>
+<body>
+    <div class="row heroesContainer">
+        <div id="heroesContainer-0">
+            <div class="column" id="heroesHeader">
+              <div>Heroes: <span id="heroesCount" class='value'>0</span> </div>
+              <div class="row headerItems">
+                <div class="row headerItem">MP spent: <span id="mpSpent" class='value'>0</span></div>
+                <div class="row headerItem">Exp earned: <span id="expEarned" class='value'>0</span></div>
+              </div>
+            </div>
+          
+            <div id="heroes" class="column"></div>
+          </div>
+          <div id="heroesContainer-1">
+            <div class="column" id="heroesHeader">
+              <div>Heroes: <span id="heroesCount" class='value'>0</span> </div>
+              <div class="row headerItems">
+                <div class="row headerItem">MP spent: <span id="mpSpent" class='value'>0</span></div>
+                <div class="row headerItem">Exp earned: <span id="expEarned" class='value'>0</span></div>
+              </div>
+            </div>
+          
+            <div id="heroes" class="column"></div>
+          </div>
+    </div>
+
+
+
+  <script src="../reporter.js"></script>
+  <script src="../heroes.js"></script>
+  <script>
+    var colors = ["red", "blue", "biege", "green", "orange", "purple", "teal", "pink"];
+      window.onUpdate = function(state){
+        for (let [i, report] of Object.entries(state.reports)) {
+            let player = document.querySelector(`#heroesContainer-${report.color}`);
+            fillHeroes(report, player);
+        }
+    };
+</script>
+</body>

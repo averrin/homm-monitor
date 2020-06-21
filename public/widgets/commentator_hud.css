@@ -1,0 +1,283 @@
+body {
+    font-size: 16pt;
+    font-weight: bold;
+    margin-top: 6px;
+}
+#matchInfo {
+    min-width: 200px;
+    font-size: 20pt;
+}
+.townImage {
+    width: 150px;
+    height: 70px;
+    background-image: url(../towns/RandomTown.gif);
+    border: 2px solid gray;
+    background-size: cover;
+}
+.playerInfo {
+    width: 100%;
+    justify-content: space-between !important;
+    margin-top: 6px;
+}
+.heroImage {
+    /*
+    width: 58px;
+    height: 64px;
+    */
+
+    width: 87px;
+    height: 96px;
+
+    background-image: url(../heroes/Hero_Random.png);
+    background-size: cover;
+    border: 2px solid gray;
+}
+#container, .row {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    flex-flow: row;
+}
+.column {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    flex-flow: column;
+    margin: 0 16px;
+}
+.itemIcon {
+    width: 58px;
+    height: 64px;
+}
+.spellIcon {
+    width: 78px;
+    height: 65px;
+}
+#wings {
+    background-image: url(../arts/Wings1.png);
+}
+#wings.hasItem {
+    background-image: url(../arts/Wings.png);
+}
+#spellbinders_hat {
+    background-image: url(../arts/Hat1.png);
+}
+#spellbinders_hat.hasItem {
+    background-image: url(../arts/Hat.png);
+}
+
+#tome_of_air {
+    background-image: url(../arts/Air_Book1.png);
+}
+#tome_of_air.hasItem {
+    background-image: url(../arts/Air_Book.png);
+}
+#tome_of_earth {
+    background-image: url(../arts/Earth_Book1.png);
+}
+#tome_of_earth.hasItem {
+    background-image: url(../arts/Earth_Book.png);
+}
+#tome_of_fire {
+    background-image: url(../arts/Fire_Book1.png);
+}
+#tome_of_fire.hasItem {
+    background-image: url(../arts/Fire_Book.png);
+}
+
+#alliance {
+    background-image: url(../arts/Alliance1.png);
+}
+#alliance.hasItem {
+    background-image: url(../arts/Alliance.png);
+}
+#aotd {
+    background-image: url(../arts/AotD1.png);
+}
+#aotd.hasItem {
+    background-image: url(../arts/AotD.png);
+}
+#shackles {
+    background-image: url(../arts/Shackles1.png);
+}
+#shackles.hasItem {
+    background-image: url(../arts/Shackles.png);
+}
+
+/**/
+#Resurrect {
+    background-image: url(../arts/Resurrection1.png);
+}
+#Resurrect.hasItem {
+    background-image: url(../arts/Resurrection.png);
+}
+#dd {
+    background-image: url(../arts/DD1.png);
+}
+#dd.hasItem {
+    background-image: url(../arts/DD.png);
+}
+
+#armageddon {
+    background-image: url(../arts/Armageddon1.png);
+}
+#armageddon.hasItem {
+    background-image: url(../arts/Armageddon.png);
+}
+#fly {
+    background-image: url(../arts/Fly1.png);
+}
+#fly.hasItem {
+    background-image: url(../arts/Fly.png);
+}
+#tp {
+    background-image: url(../arts/TP1.png);
+}
+#tp.hasItem {
+    background-image: url(../arts/TP.png);
+}
+
+#grail {
+    background-image: url(../arts/Grail1.png);
+}
+#grail.hasItem {
+    background-image: url(../arts/Grail.png);
+}
+#ee {
+    background-image: url(../arts/Expert_Earth_Magic1.png);
+}
+#ee.hasItem {
+    background-image: url(../arts/Expert_Earth_Magic.png);
+}
+
+.combatIcon {
+    width: 26px;
+    height: 32px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin: 2px;
+}
+
+.attackIcon {
+    background-image: url(/arts/Attack_Skill.png);
+}
+
+#playerName {
+    max-width: 160;
+    font-size: 20pt;
+}
+.combatInfo {
+    margin-top: 6px;
+}
+
+.player {
+    min-height: 200px;
+}
+
+.armyValues {
+    margin-left: 10px;
+}
+.heroInfo div{
+    width: 100%;
+}
+#heroes, #heroesHeader {
+    width: 420px;
+}
+#towns, #townsHeader {
+    width: 440px;
+}
+#heroes .row,
+#towns .row {
+    width: 100%;
+    margin-bottom: 2px;
+    font-size: 11pt;
+}
+#heroes .heroImage {
+    width: 44px;
+    height: 48px;
+    min-width: 44px;
+    min-height: 48px;
+}
+.genderSymbol {
+    width: 14px;
+    height: 14px;
+}
+.heroName, .townName {
+    font-size: 14pt !important;
+}
+.headerItems {
+    justify-content: space-between !important;
+    width: 100%;
+}
+#mpSpent, #expEarned {
+    margin-left: 6px;;
+}
+.heroesContainer, .townsContainer {
+    height: 700px;
+}
+#heroesContainer-0, #heroesContainer-1,
+#townsContainer-0, #townsContainer-1 {
+    height: 100%;
+}
+#heroesContainer-1,
+#townsContainer-1 {
+    border-left: 1px solid goldenrod;
+}
+.skillIcon {
+    width: 18px;
+    height: 18px;
+    margin: 0px 1px;
+    margin-bottom: -3px;
+}
+
+#towns .spellIcon {
+    width: 30px;
+    height: 20px;
+    margin: 0px 1px;
+    margin-bottom: -3px;
+}
+
+#towns .townImage {
+    width: 75px;
+    height: 35px;
+    min-width: 75px;
+    min-height: 35px;
+}
+
+.spellsRow {
+    margin-bottom: 6px !important;
+}
+
+.resource {
+    background-image: url(../towns/resources.png);
+    width: 24px;
+    height: 24px;
+    background-size: cover;
+}
+.resource.gold {
+    background-position-x: 200px;
+}
+.resource.wood {
+    background-position-x: -2px;
+}
+.resource.mercury {
+    background-position-x: -28px;
+}
+.resource.ore {
+    background-position-x: -52px;
+}
+.resource.sulfur {
+    background-position-x: -76px;
+}
+.resource.crystal {
+    background-position-x: -100px;
+}
+.resource.gems {
+    background-position-x: -123px;
+}
+#towns {
+    margin-top: 10px;
+}
+.townInfo {
+    min-height: 80px;
+}

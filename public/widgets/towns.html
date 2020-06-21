@@ -1,0 +1,37 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="commentator_hud.css">
+  <style>
+  </style>
+</head>
+<body>
+  <div id="townsContainer-0">
+    <div class="column" id="townsHeader">
+      <div>Towns: <span id="townsCount" class='value'>0</span> </div>
+      <div class="row headerItems">
+        <div class="row headerItem"><div class="resource gold"></div><span id="gold" class='value'>0</span></div>
+        <div class="row headerItem"><div class="resource wood"></div><span id="wood" class='value'>0</span></div>
+        <div class="row headerItem"><div class="resource ore"></div><span id="ore" class='value'>0</span></div>
+      </div>
+      <div class="row headerItems">
+        <div class="row headerItem"><div class="resource mercury"></div><span id="mercury" class='value'>0</span></div>
+        <div class="row headerItem"><div class="resource sulfur"></div><span id="sulfur" class='value'>0</span></div>
+        <div class="row headerItem"><div class="resource crystal"></div><span id="crystal" class='value'>0</span></div>
+        <div class="row headerItem"><div class="resource gems"></div><span id="gems" class='value'>0</span></div>
+      </div>
+    </div>
+  
+    <div id="towns" class="column"></div>
+  </div>
+
+
+  <script src="../reporter.js"></script>
+  <script src="../towns.js"></script>
+  <script>
+    var colors = ["red", "blue", "biege", "green", "orange", "purple", "teal", "pink"];
+      window.onUpdate = function(report){
+        let player = document.querySelector("#townsContainer-0");
+        fillTowns(report, player);
+    };
+</script>
+</body>

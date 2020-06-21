@@ -1,0 +1,119 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="commentator_hud.css">
+</head>
+<body>
+    <div id="container">
+        <div id="player-0" class="column player">
+            <div class="row">
+                <div class="column">
+                    <div class="row">
+                        <div class="spellIcon" id="Resurrect"></div>
+                        <div class="spellIcon" id="dd"></div>
+    
+                        <div class="spellIcon" id="armageddon"></div>
+                        <div class="spellIcon" id="fly"></div>
+                        <div class="spellIcon" id="tp"></div>
+    
+                        <div class="itemIcon" id="grail"></div>
+                        <div class="itemIcon" id="ee"></div>
+                    </div>
+                    <div class="row">
+                        <div class="itemIcon" id="wings"></div>
+                        <div class="itemIcon" id="spellbinders_hat"></div>
+    
+                        <div class="itemIcon" id="tome_of_air"></div>
+                        <div class="itemIcon" id="tome_of_earth"></div>
+                        <div class="itemIcon" id="tome_of_fire"></div>
+    
+                        <div class="itemIcon" id="alliance"></div>
+                        <div class="itemIcon" id="aotd"></div>
+                        <div class="itemIcon" id="shackles"></div>
+                    </div>
+                </div>
+                <div class="heroImage"></div>
+                <div class="column">
+                    <div id="playerName">Unknown</div>
+                    <div class="townImage"></div>
+                </div>
+            </div>
+            <div class="row playerInfo">
+                <div id="tc">Clicks: <span class="value">0</span></div>
+                <div id="apm">APM: <span class="value">0</span></div>
+                <div id="tmp">MP spent: <span class="value">0</span></div>
+                <div id="av">Army: <span class="value">0</span></div>
+            </div>
+            <div class="row combatInfo" style="display: none;">
+                <div class="combatIcon attackIcon"></div>
+                <div class="combatIcon smallHeroIcon"></div>
+                <div class="armyValues"></div>
+            </div>
+        </div>
+
+
+        <div id="matchInfo" class="column">
+            <div id="matchName"></div>
+            <div id="matchDesc"></div>
+        </div>
+
+
+        <div id="player-1" class="column player">
+            <div class="row">
+                <div class="column">
+                    <div id="playerName">Unknown</div>
+                    <div class="townImage"></div>
+                </div>
+                <div class="heroImage"></div>
+                <div class="column">
+                    <div class="row">
+                        <div class="spellIcon" id="Resurrect"></div>
+                        <div class="spellIcon" id="dd"></div>
+    
+                        <div class="spellIcon" id="armageddon"></div>
+                        <div class="spellIcon" id="fly"></div>
+                        <div class="spellIcon" id="tp"></div>
+    
+                        <div class="itemIcon" id="grail"></div>
+                        <div class="itemIcon" id="ee"></div>
+                    </div>
+                    <div class="row">
+                        <div class="itemIcon" id="wings"></div>
+                        <div class="itemIcon" id="spellbinders_hat"></div>
+    
+                        <div class="itemIcon" id="tome_of_air"></div>
+                        <div class="itemIcon" id="tome_of_earth"></div>
+                        <div class="itemIcon" id="tome_of_fire"></div>
+    
+                        <div class="itemIcon" id="alliance"></div>
+                        <div class="itemIcon" id="aotd"></div>
+                        <div class="itemIcon" id="shackles"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row playerInfo">
+                <div id="tc">Clicks: <span class="value">0</span></div>
+                <div id="apm">APM: <span class="value">0</span></div>
+                <div id="tmp">MP spent: <span class="value">0</span></div>
+                <div id="av">Army: <span class="value">0</span></div>
+            </div>
+            <div class="row combatInfo" style="display: none;">
+                <div class="combatIcon attackIcon"></div>
+                <div class="combatIcon smallHeroIcon"></div>
+                <div class="armyValues"></div>
+            </div>
+        </div>
+    </div>
+
+  <script src="../hud.js"></script>
+  <script src="../reporter.js"></script>
+  <script>
+      window.onUpdate = function(state){
+          document.querySelector("#matchName").innerText = state.matchName;
+          document.querySelector("#matchDesc").innerText = state.matchDesc;
+          for (let [i, element] of Object.entries(state.reports)) {
+            let player = document.querySelector(`#player-${i}`);
+                fillHUD(player, element);
+            };
+  };
+</script>
+</body>
