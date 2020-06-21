@@ -1,0 +1,21 @@
+<head>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://rawgit.com/abodelot/jquery.json-viewer/master/json-viewer/jquery.json-viewer.js"></script>
+  <link href="https://rawgit.com/abodelot/jquery.json-viewer/master/json-viewer/jquery.json-viewer.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+<button onclick="update()">update</button>
+    <pre id="json-renderer"></pre>
+    <script src="../reporter.js"></script>
+    <script>
+    function update(){loaded=false; return false;}
+    let loaded = false;
+    window.onUpdate = function(state){
+        if (!loaded) {
+            $('#json-renderer').jsonViewer(state);
+            loaded = true;
+        }
+        
+    }
+    </script>
+<body>
