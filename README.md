@@ -1,4 +1,4 @@
-#HoMM Monitor
+# HoMM Monitor
 
 ## What is it?
 
