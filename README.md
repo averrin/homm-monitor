@@ -22,9 +22,13 @@ Just double click on "HoMM-Monitor\comentator.exe"
 
 Type a human-readable name for your match and press the "Create Match" button. Then copy appeared Match ID and send it to your players.
 
+![create match](https://github.com/averrin/homm-monitor/raw/master/screenshots/1.png)
+
 ### Do some tweaks
 
 You can control some HUD settings at the "Overlay settings" tab. There are only two options for now. Also, you can see timestamps for players' updates at the "Status" tab.
+
+![overlay](https://github.com/averrin/homm-monitor/raw/master/screenshots/2.png)
 
 ### Setup OBS overlay
 
@@ -32,7 +36,7 @@ You can use the example "Comentator's" scene from "HoMM-Monitor\obs". Browser so
 
 There are three main examples:
 
-- Commentator HUD (http://localhost:8988/widgets/commentator_hud.html) which is pretty similar to SNG Online HUD
+- Commentator HUD ([http://localhost:8988/widgets/commentator_hud.html](http://localhost:8988/widgets/commentator_hud.html)) which is pretty similar to SNG Online HUD
 - Map ([http://localhost:8988/widgets/map.html](http://localhost:8988/widgets/map.html))
 - Heroes list ([http://localhost:8988/widgets/commentator_heroes.html](http://localhost:8988/widgets/commentator_heroes.html))
 
@@ -54,6 +58,8 @@ Just double click on "HoMM-Monitor\player.exe"
 
 Got match ID from your commentator and place it to the input on "Match" tab. Also you should specify your name for this match (it will display on commentator's HUD) and press "Connect".
 
+![connect](https://github.com/averrin/homm-monitor/raw/master/screenshots/3.png)
+
 ### Play
 
 Preparations are done!
@@ -67,7 +73,9 @@ There are two main examples:
 
 - HUD (http://localhost:8989/widgets/hud.html) which is left half of the Commentator's HUD
 - "Single" (http://localhost:8989/widgets/single.html?key=totalMPSpent) for displaying a single value. You can choose the desired value by changing the "key" parameter in the URL. You can take key names from the server window after data update.
-- Heroes list ([http://localhost:8989/widgets/heroes.html](http://localhost:8988/widgets/commentator_heroes.html))
+- Heroes list ([http://localhost:8989/widgets/heroes.html](http://localhost:8989/widgets/heroes.html))
+- Towns list ([http://localhost:8989/widgets/towns.html](http://localhost:8989/widgets/towns.html))
+- Debugger ([http://localhost:8989/widgets/debugger.html](http://localhost:8989/widgets/debugger.html))
 
 ## Something went wrong
 
@@ -75,6 +83,7 @@ There are three possible ways to fix "something" without restarting everything.
 
 - Update OBS sources. Widgets can lose connection to the server (at least it happens every time when you restart server), so you should update it. It can be done by button from the image below. If this checkbox is set, you can refresh all widgets by going to the other scene and back.
 
+![refresh](https://github.com/averrin/homm-monitor/raw/master/screenshots/4.png)
 
 - Press "Reset" button at the server GUI. It clears all accumulated analytics values (like totalMPSpent)
 - Press F6 in the game to stop plugin and press again to restart it. It also resets server (see above) and reset inner clicks counter.
