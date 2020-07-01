@@ -93,3 +93,8 @@ There are three possible ways to fix "something" without restarting everything.
 
 - Press "Reset" button at the server GUI. It clears all accumulated analytics values (like totalMPSpent)
 - Press F6 in the game to stop plugin and press again to restart it. It also resets server (see above) and reset inner clicks counter.
+
+## Special thanks
+- [MS Studio](https://msstudio.tv/)
+- [RedWhait](https://www.twitch.tv/redwhait)
+- [DontCallMeChris](https://www.twitch.tv/dontcallmechris)
