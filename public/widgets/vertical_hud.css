@@ -22,10 +22,8 @@
 .vertical .itemIcon {
     width: calc(29px*1.5);
     height: calc(32px*1.5);
-    background-size: cover;
 }
 .vertical .spellIcon {
     width: calc(39px*1.5);
     height: calc(32px*1.5);
-    background-size: cover;
 }

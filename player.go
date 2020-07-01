@@ -260,6 +260,9 @@ func processReport() {
 			if item.Id == ARMOR_OF_THE_DAMNED {
 				STATE.HUD.HasAOTD = true
 			}
+			if item.Id == IRONFIST_OF_THE_OGRE {
+				STATE.HUD.HasIronFist = true
+			}
 			if item.Id == SPELL_SCROLL {
 				if item.Type == FLY {
 					STATE.HUD.HasFly = true

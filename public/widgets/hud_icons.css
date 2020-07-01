@@ -1,0 +1,102 @@
+#wings {
+    background-image: url(/arts/Wings1.png);
+}
+#wings.hasItem {
+    background-image: url(/arts/Wings.png);
+}
+#spellbinders_hat {
+    background-image: url(/arts/Hat1.png);
+}
+#spellbinders_hat.hasItem {
+    background-image: url(/arts/Hat.png);
+}
+
+#tome_of_air {
+    background-image: url(/arts/Air_Book1.png);
+}
+#tome_of_air.hasItem {
+    background-image: url(/arts/Air_Book.png);
+}
+#tome_of_earth {
+    background-image: url(/arts/Earth_Book1.png);
+}
+#tome_of_earth.hasItem {
+    background-image: url(/arts/Earth_Book.png);
+}
+#tome_of_fire {
+    background-image: url(/arts/Fire_Book1.png);
+}
+#tome_of_fire.hasItem {
+    background-image: url(/arts/Fire_Book.png);
+}
+
+#alliance {
+    background-image: url(/arts/Alliance1.png);
+}
+#alliance.hasItem {
+    background-image: url(/arts/Alliance.png);
+}
+#aotd {
+    background-image: url(/arts/AotD1.png);
+}
+#aotd.hasItem {
+    background-image: url(/arts/AotD.png);
+}
+#shackles {
+    background-image: url(/arts/Shackles1.png);
+}
+#shackles.hasItem {
+    background-image: url(/arts/Shackles.png);
+}
+#ironfist {
+    background-image: url(/arts/Ogre_Fist1.png);
+}
+#ironfist.hasItem {
+    background-image: url(/arts/Ogre_Fist.png);
+}
+
+/**/
+#Resurrect {
+    background-image: url(/arts/Resurrection1.png);
+}
+#Resurrect.hasItem {
+    background-image: url(/arts/Resurrection.png);
+}
+#dd {
+    background-image: url(/arts/DD1.png);
+}
+#dd.hasItem {
+    background-image: url(/arts/DD.png);
+}
+
+#armageddon {
+    background-image: url(/arts/Armageddon1.png);
+}
+#armageddon.hasItem {
+    background-image: url(/arts/Armageddon.png);
+}
+#fly {
+    background-image: url(/arts/Fly1.png);
+}
+#fly.hasItem {
+    background-image: url(/arts/Fly.png);
+}
+#tp {
+    background-image: url(/arts/TP1.png);
+}
+#tp.hasItem {
+    background-image: url(/arts/TP.png);
+}
+
+#grail {
+    background-image: url(/arts/Grail1.png);
+}
+#grail.hasItem {
+    background-image: url(/arts/Grail.png);
+}
+#ee {
+    background-image: url(/arts/Expert_Earth_Magic1.png);
+}
+#ee.hasItem {
+    background-image: url(/arts/Expert_Earth_Magic.png);
+}

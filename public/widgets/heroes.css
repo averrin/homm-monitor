@@ -1,0 +1,46 @@
+.heroInfo div{
+    width: 100%;
+}
+#heroes, #heroesHeader {
+    width: 420px;
+}
+#heroes .heroImage {
+    width: 44px;
+    height: 48px;
+    min-width: 44px;
+    min-height: 48px;
+}
+.genderSymbol {
+    width: 16px;
+    height: 16px;
+    margin-left: 4px;
+}
+
+#mpSpent, #expEarned {
+    margin-left: 6px;;
+}
+
+.heroName {
+    font-size: 14pt !important;
+}
+#heroes .row {
+    width: 100%;
+    margin-bottom: 2px;
+    font-size: 11pt;
+}
+.heroesContainer {
+    height: 700px;
+}
+.skillIcon {
+    width: 18px;
+    height: 18px;
+    margin: 0px 1px;
+    margin-bottom: -3px;
+}
+
+#heroesContainer-0, #heroesContainer-1 {
+    height: 100%;
+}
+#heroesContainer-1 {
+    border-left: 1px solid goldenrod;
+}

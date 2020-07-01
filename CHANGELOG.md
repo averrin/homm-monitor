@@ -4,6 +4,8 @@
 - Better actions detection
 - Added "clean" apm -- without right clicks
 - Added last report fetching for "load match" function
+- Added missed ironfist of the ogre item icon
+- Widget styles refactoring
 
 ## 0.5.1/2 -- 30.06.2020
 - New vertical HUD widget

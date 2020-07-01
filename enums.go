@@ -142,6 +142,8 @@ const (
 	WIZARDS_WELL                   = 138
 	RING_OF_THE_MAGI               = 139
 	CORNUCOPIA                     = 140
+
+	IRONFIST_OF_THE_OGRE = 140
 )
 
 const (

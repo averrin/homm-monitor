@@ -1,0 +1,29 @@
+.itemIcon {
+    width: 58px;
+    height: 64px;
+    background-size: cover;
+}
+.spellIcon {
+    width: 78px;
+    height: 65px;
+    background-size: cover;
+}
+.attackIcon {
+    background-image: url(/arts/Attack_Skill.png);
+}
+
+#playerName {
+    max-width: 160;
+    font-size: 20pt;
+}
+.combatInfo {
+    margin-top: 6px;
+}
+
+.player {
+    min-height: 200px;
+}
+
+.armyValues {
+    margin-left: 10px;
+}

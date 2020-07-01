@@ -13,10 +13,7 @@ function fillHeroes(report, player) {
         ava.className = "heroImage";
         ava.style.backgroundImage = `url(/heroes/${hero.id}.png)`;
         ava.style.borderColor = colors[report.color];
-        ava.innerHTML = `<img class="genderSymbol" src="/heroes/male.svg">`;
-        if (hero.gender == 1) {
-            ava.innerHTML = `<img class="genderSymbol" src="/heroes/female.svg">`;
-        }
+        
         item.append(ava);
         let heroInfo = document.createElement('div');
         heroInfo.className = "heroInfo row";
@@ -29,6 +26,12 @@ function fillHeroes(report, player) {
         let name = document.createElement('div');
         name.className = "heroName value";
         name.innerText = hero.name;
+    
+        if (hero.gender == 1) {
+            name.innerHTML += `<img class="genderSymbol" src="/heroes/female.svg">`;
+        } else {
+            name.innerHTML += `<img class="genderSymbol" src="/heroes/male.svg">`;
+        }
         if (hero.inGarrison) {
             name.innerHTML += `<img class="skillIcon" src="/towns/castle.gif" style="margin-left: 6px;">`;
         }

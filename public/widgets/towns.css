@@ -1,0 +1,74 @@
+#towns .spellIcon {
+    width: 30px;
+    height: 20px;
+    margin: 0px 1px;
+    margin-bottom: -3px;
+}
+
+#towns .townImage {
+    width: 75px;
+    height: 35px;
+    min-width: 75px;
+    min-height: 35px;
+}
+
+.spellsRow {
+    margin-bottom: 6px !important;
+}
+
+.resource {
+    background-image: url(../towns/resources.png);
+    width: 24px;
+    height: 24px;
+    background-size: cover;
+}
+.resource.gold {
+    background-position-x: 200px;
+}
+.resource.wood {
+    background-position-x: -2px;
+}
+.resource.mercury {
+    background-position-x: -28px;
+}
+.resource.ore {
+    background-position-x: -52px;
+}
+.resource.sulfur {
+    background-position-x: -76px;
+}
+.resource.crystal {
+    background-position-x: -100px;
+}
+.resource.gems {
+    background-position-x: -123px;
+}
+#towns {
+    margin-top: 10px;
+}
+.townInfo {
+    min-height: 80px;
+}
+
+.townName {
+    font-size: 14pt !important;
+}
+#towns, #townsHeader {
+    width: 420px;
+}
+#towns .row {
+    width: 100%;
+    margin-bottom: 2px;
+    font-size: 11pt;
+}
+.townsContainer {
+    height: 700px;
+}
+
+#townsContainer-0, #townsContainer-1 {
+    height: 100%;
+}
+
+#townsContainer-1 {
+    border-left: 1px solid goldenrod;
+}

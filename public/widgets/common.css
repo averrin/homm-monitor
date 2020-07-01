@@ -1,0 +1,56 @@
+body {
+    font-size: 16pt;
+    font-weight: bold;
+    margin-top: 6px;
+}
+.townImage {
+    width: 150px;
+    height: 70px;
+    background-image: url(../towns/RandomTown.gif);
+    border: 2px solid gray;
+    background-size: cover;
+}
+.playerInfo {
+    width: 100%;
+    justify-content: space-between !important;
+    margin-top: 6px;
+}
+.heroImage {
+    /*
+    width: 58px;
+    height: 64px;
+    */
+
+    width: 87px;
+    height: 96px;
+
+    background-image: url(../heroes/Hero_Random.png);
+    background-size: cover;
+    border: 2px solid gray;
+}
+#container, .row {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    flex-flow: row;
+}
+.column {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    flex-flow: column;
+    margin: 0 16px;
+}
+
+.combatIcon {
+    width: 26px;
+    height: 32px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin: 2px;
+}
+
+.headerItems {
+    justify-content: space-between !important;
+    width: 100%;
+}

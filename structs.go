@@ -112,6 +112,8 @@ type HUD struct {
 	HasTomeOfFire  bool `json:"hasTomeOfFire"`
 	HasTomeOfEarth bool `json:"hasTomeOfEarth"`
 
+	HasIronFist bool `json:"hasIronFist"`
+
 	HasDD          bool `json:"hasDD"`
 	HasTP          bool `json:"hasTP"`
 	HasFly         bool `json:"hasFly"`

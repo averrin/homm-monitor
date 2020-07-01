@@ -16,7 +16,7 @@ function fillHUD(player, report) {
     player.querySelector("#playerName").innerText = report.playerName;
 
     player.querySelector("#tc .value").innerText = report.actions;
-    player.querySelector("#apm .value").innerText = `${report.apm}/${report.cleanApm} (${report.maxApm})`;
+    player.querySelector("#apm .value").innerText = `${report.apm} / ${report.cleanApm} (${report.maxApm})`;
     player.querySelector("#tmp .value").innerText = report.totalMPSpent;
     player.querySelector("#av .value").innerText = report.armyValue;
 
@@ -29,6 +29,8 @@ function fillHUD(player, report) {
     hasItem(report, player, "#alliance", "hasAlliance");
     hasItem(report, player, "#aotd", "hasAOTD");
     hasItem(report, player, "#shackles", "hasShackles");
+
+    hasItem(report, player, "#ironfist", "hasIronFist");
 
     hasSpell(report, player, "#Resurrect", "hasResurrect");
     hasSpell(report, player, "#dd", "hasDD");

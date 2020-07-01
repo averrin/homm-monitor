@@ -12,7 +12,7 @@ std::vector<Hero> Monitor::iterateHeroes() {
 	for (size_t hid = 0; hid < 178; hid++)
 	{
 		auto hero = *main->GetHero(hid);
-		if ( hero.owner == playerId) {
+		if (hero.owner == playerId) {
 			std::vector<Item> backpack;
 			std::vector<Item> weared;
 			for (size_t i = 0; i < 19; i++)
