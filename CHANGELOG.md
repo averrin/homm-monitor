@@ -1,7 +1,8 @@
 # Changelog
 
-## 0.5.1 -- 30.06.2020
+## 0.5.1/2 -- 30.06.2020
 - New vertical HUD widget
+- Better documentation
 
 ## 0.5 -- 21.06.2020
 - Fixed wrong Cove heroes' images

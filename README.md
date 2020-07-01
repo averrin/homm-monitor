@@ -8,6 +8,8 @@ This is a software for gathering data from your HoMM3 game and showing it in OBS
 - Server. It's the central part of this program. Here we store your data, calculate analytics, and serving it for OBS.
 - Widgets. When you want to show some data in OBS you need to add some source. And you may want to display different data in different places. So, there are a couple of predifined "widgets" to make it possible. Widget is a simple html page that can be displayed by "Browser" source in OBS.
 
+![create match](https://github.com/averrin/homm-monitor/raw/master/screenshots/player_huds.png)
+
 ## How to use it?
 
 Go to [Releases page](https://github.com/averrin/homm-monitor/releases) and download latest.
@@ -40,6 +42,8 @@ There are three main examples:
 - Map ([http://localhost:8988/widgets/map.html](http://localhost:8988/widgets/map.html))
 - Heroes list ([http://localhost:8988/widgets/commentator_heroes.html](http://localhost:8988/widgets/commentator_heroes.html))
 
+You can configure widget's style with "Custom CSS" field at source properties window in OBS. Please use example scene as a reference.
+
 ## For players:
 
 ### Install the plugin.
@@ -71,11 +75,13 @@ You can use the example "Player's" scene from "HoMM-Monitor\obs". Browser source
 
 There are two main examples:
 
-- HUD (http://localhost:8989/widgets/hud.html) which is left half of the Commentator's HUD
-- "Single" (http://localhost:8989/widgets/single.html?key=totalMPSpent) for displaying a single value. You can choose the desired value by changing the "key" parameter in the URL. You can take key names from the server window after data update.
+- HUD ([http://localhost:8989/widgets/hud.html](http://localhost:8989/widgets/hud.html)) which is left half of the Commentator's HUD
+- "Single" ([http://localhost:8989/widgets/single.html?key=totalMPSpent](http://localhost:8989/widgets/single.html?key=totalMPSpent)) for displaying a single value. You can choose the desired value by changing the "key" parameter in the URL. You can take key names from the server window after data update.
 - Heroes list ([http://localhost:8989/widgets/heroes.html](http://localhost:8989/widgets/heroes.html))
 - Towns list ([http://localhost:8989/widgets/towns.html](http://localhost:8989/widgets/towns.html))
 - Debugger ([http://localhost:8989/widgets/debugger.html](http://localhost:8989/widgets/debugger.html))
+
+You can configure widget's style with "Custom CSS" field at source properties window in OBS. Please use example scene as a reference.
 
 ## Something went wrong
 
