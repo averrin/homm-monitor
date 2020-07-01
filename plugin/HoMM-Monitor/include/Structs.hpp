@@ -3,7 +3,7 @@
 #include "picojson_serializer.h"
 #include "picojson_vector_serializer.h"
 
-#define VERSION 5
+#define VERSION 6
 
 namespace HoMMMonitor {
 	struct Combat {
@@ -212,8 +212,10 @@ namespace HoMMMonitor {
 
 		std::vector<Town> towns = {};
 
-		int clicks = 0;
+		int actions = 0;
 		int apm = 0;
+		int cleanActions = 0;
+		int cleanApm = 0;
 
 		Combat currentCombat{};
 
@@ -243,8 +245,10 @@ namespace HoMMMonitor {
 
 			ar& picojson::convert::member("towns", towns);
 
-			ar& picojson::convert::member("clicks", clicks);
+			ar& picojson::convert::member("actions", actions);
 			ar& picojson::convert::member("apm", apm);
+			ar& picojson::convert::member("cleanActions", cleanActions);
+			ar& picojson::convert::member("cleanApm", cleanApm);
 
 			ar& picojson::convert::member("currentCombat", currentCombat);
 

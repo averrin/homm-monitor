@@ -26,6 +26,7 @@ var pb *walk.PushButton
 var loadMatchPB *walk.PushButton
 var outTE *walk.TextEdit
 var clientLabel *walk.Label
+var lastUpdateLabel *walk.Label
 var started = false
 
 var REPORTS map[int]Report
@@ -38,7 +39,7 @@ func listenChanges(id string) {
 	}
 	var value Update
 	for res.Next(&value) {
-		value.NewValue.RecTime = time.Now().Format("02.01.2006 15:04:05")
+		value.NewValue.RecTime = time.Now()
 		REPORTS[value.NewValue.Color] = value.NewValue
 		update := ""
 		for i := 0; i < 8; i++ {
@@ -64,6 +65,25 @@ func LoadMatch(id string) {
 	cursor.Close()
 	started = true
 	overlayMatchNameInput.SetText(match.Name)
+
+	//.OrderBy(r.Desc("updateTime"))
+	report := Report{}
+	err = r.Table(match.Id).Limit(1).ReadOne(&report, session)
+	if err != nil {
+		log.Fatalln(err)
+	}
+
+	cursor.One(&report)
+	cursor.Close()
+	REPORTS[report.Color] = report
+
+	//state, _ := json.MarshalIndent(report, "\r\n", "    ")
+	//outTE.SetText(string(state))
+	color := []string{"Red", "Blue"}[report.Color]
+	update := fmt.Sprintf("Last update: %s from %s (%s)\r\n", report.UpdateTime, report.PlayerName, color)
+	lastUpdateLabel.SetText(update)
+	outTE.SetText(update)
+
 	go listenChanges(match.Id)
 }
 
@@ -82,6 +102,7 @@ func CreateMatch(name string) string {
 		table,
 		name,
 		time.Now(),
+		-1,
 	}
 	r.Table("matches").Insert(match).RunWrite(session)
 	started = true
@@ -189,6 +210,7 @@ func main() {
 								},
 								Enabled: false,
 							},
+							Label{AssignTo: &lastUpdateLabel},
 							VSpacer{},
 						},
 					},

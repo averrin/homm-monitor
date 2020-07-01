@@ -8,6 +8,6 @@ extern Patcher *_P;
 // * Global Patcher Instance
 extern PatcherInstance *_PI;
 
-void hooks_init(PatcherInstance* pi);
+void hooks_init(HMODULE hModule, PatcherInstance* pi);
 
 #endif

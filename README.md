@@ -64,6 +64,8 @@ Got match ID from your commentator and place it to the input on "Match" tab. Als
 
 ![connect](https://github.com/averrin/homm-monitor/raw/master/screenshots/3.png)
 
+If you want to continue already created match you can use "Load Match" tab.
+
 ### Play
 
 Preparations are done!
@@ -95,6 +97,7 @@ There are three possible ways to fix "something" without restarting everything.
 - Press F6 in the game to stop plugin and press again to restart it. It also resets server (see above) and reset inner clicks counter.
 
 ## Special thanks
+- [RoseKavalier](https://github.com/RoseKavalier)
 - [MS Studio](https://msstudio.tv/)
 - [RedWhait](https://www.twitch.tv/redwhait)
 - [DontCallMeChris](https://www.twitch.tv/dontcallmechris)

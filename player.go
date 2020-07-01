@@ -315,7 +315,7 @@ func processReport() {
 
 	STATE.MaxAPM = int(math.Max(float64(PREV_STATE.MaxAPM), float64(STATE.APM)))
 
-	STATE.UpdateTime = time.Now().Format("02.01.2006 15:04:05")
+	STATE.UpdateTime = time.Now()
 	STATE.ClientVersion = VERSION
 	state, _ := json.MarshalIndent(STATE, "\r\n", "    ")
 	if connected {

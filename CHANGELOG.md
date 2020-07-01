@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.6 -- ??
+- Better actions detection
+- Added "clean" apm -- without right clicks
+- Added last report fetching for "load match" function
+
 ## 0.5.1/2 -- 30.06.2020
 - New vertical HUD widget
 - Better documentation

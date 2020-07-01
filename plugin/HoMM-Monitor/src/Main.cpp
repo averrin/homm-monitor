@@ -26,7 +26,7 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD ul_reason_for_call, LPVOID lpReserv
 				PatcherInstance *pi = _PI;
 				if (!pi)
 					break;
-				hooks_init(pi);
+				hooks_init(hModule, pi);
 			}
 		}
 		break;

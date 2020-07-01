@@ -129,6 +129,8 @@ void Monitor::Update() {
 			player->playerResources.crystal, player->playerResources.gems},
 			{main->mapName.String(), map->mapSize, map->SubterraneanLevel, visionS, visionU},
 			player->townsCount, player->visitedObelisks, main->obeliskCount, player->ownerID,
-			main->date.month, main->date.week, main->date.day, int(heroes.size()), heroes, towns, 0, 0, currentCombat
+			main->date.month, main->date.week, main->date.day, int(heroes.size()), heroes, towns, 
+			0, 0, 0, 0,
+			currentCombat
 		};
 }

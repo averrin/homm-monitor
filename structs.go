@@ -2,8 +2,8 @@ package main
 
 import "time"
 
-var VERSION = "0.5"
-var PLUGIN_VERSION = 5
+var VERSION = "0.6"
+var PLUGIN_VERSION = 6
 var url = "161.35.209.12:28015"
 
 type Coords struct {
@@ -159,16 +159,19 @@ type Report struct {
 
 	ArmyValue int `json:"armyValue"`
 
-	Clicks int `json:"clicks"`
-	APM    int `json:"apm"`
+	Actions      int `json:"actions"`
+	APM          int `json:"apm"`
+	CleanActions int `json:"cleanActions"`
+	CleanAPM     int `json:"cleanApm"`
+
 	MaxAPM int `json:"maxApm"`
 	AvgAPM int `json:"avgApm"`
 
 	MatchId    string `json:"matchId"`
 	PlayerName string `json:"playerName"`
 
-	RecTime    string `json:"recTime"`
-	UpdateTime string `json:"updateTime"`
+	RecTime    time.Time `json:"recTime"`
+	UpdateTime time.Time `json:"updateTime"`
 
 	CurrentCombat Combat `json:"currentCombat"`
 
@@ -198,4 +201,5 @@ type Match struct {
 	Id      string    `rethinkdb:"id,omitempty"`
 	Name    string    `rethinkdb:"name,omitempty"`
 	Created time.Time `rethinkdb:"created,omitempty"`
+	Winner  int       `rethinkdb:"winner,omitempty"`
 }
