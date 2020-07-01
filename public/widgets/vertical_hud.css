@@ -1,0 +1,31 @@
+.vertical, .vertical .row,
+.vertical .column {
+    width: 232px;
+    max-width: 232px;
+    margin: 0;
+    justify-content: center;
+}
+
+.vertical .player {
+    padding: 4px;
+}
+.vertical .heroImage {
+    min-width: 87px;
+}
+.vertical .townImage {
+    min-width: 150px;
+}
+.vertical .heroImage, .vertical .townImage {
+    transform: scale(0.8);
+    background-size: cover;
+}
+.vertical .itemIcon {
+    width: calc(29px*1.5);
+    height: calc(32px*1.5);
+    background-size: cover;
+}
+.vertical .spellIcon {
+    width: calc(39px*1.5);
+    height: calc(32px*1.5);
+    background-size: cover;
+}

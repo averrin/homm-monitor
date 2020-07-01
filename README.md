@@ -75,7 +75,6 @@ There are three possible ways to fix "something" without restarting everything.
 
 - Update OBS sources. Widgets can lose connection to the server (at least it happens every time when you restart server), so you should update it. It can be done by button from the image below. If this checkbox is set, you can refresh all widgets by going to the other scene and back.
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/9cf459cf-372d-4bf6-b3c9-c6a68c6f125d/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/9cf459cf-372d-4bf6-b3c9-c6a68c6f125d/Untitled.png)
 
 - Press "Reset" button at the server GUI. It clears all accumulated analytics values (like totalMPSpent)
 - Press F6 in the game to stop plugin and press again to restart it. It also resets server (see above) and reset inner clicks counter.

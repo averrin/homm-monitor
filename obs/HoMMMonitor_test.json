@@ -59,8 +59,8 @@
         "versioned_id": "wasapi_output_capture",
         "volume": 1.0
     },
-    "current_program_scene": "Commentator's",
-    "current_scene": "Commentator's",
+    "current_program_scene": "Player's",
+    "current_scene": "Player's",
     "current_transition": "Fade",
     "groups": [],
     "modules": {
@@ -129,6 +129,40 @@
         }
     ],
     "sources": [
+        {
+            "balance": 0.5,
+            "deinterlace_field_order": 0,
+            "deinterlace_mode": 0,
+            "enabled": true,
+            "flags": 0,
+            "hotkeys": {
+                "libobs.mute": [],
+                "libobs.push-to-mute": [],
+                "libobs.push-to-talk": [],
+                "libobs.unmute": []
+            },
+            "id": "browser_source",
+            "mixers": 255,
+            "monitoring_type": 0,
+            "muted": false,
+            "name": "Vertical HUD",
+            "prev_ver": 419430408,
+            "private_settings": {},
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "settings": {
+                "css": "body { background-color: #1e1812; margin: 0px auto; overflow: hidden; color: #ecceaf; padding: 5px;}\n.value {\ncolor: #f0f0f0;\n}",
+                "height": 950,
+                "restart_when_active": true,
+                "url": "http://localhost:8989/widgets/vertical_hud.html",
+                "width": 246
+            },
+            "sync": 0,
+            "versioned_id": "browser_source",
+            "volume": 1.0
+        },
         {
             "balance": 0.5,
             "deinterlace_field_order": 0,
@@ -497,12 +531,14 @@
                 "libobs.hide_scene_item.Heroes widget": [],
                 "libobs.hide_scene_item.Resources": [],
                 "libobs.hide_scene_item.Total Gold": [],
+                "libobs.hide_scene_item.Vertical HUD": [],
                 "libobs.hide_scene_item.gold_label": [],
                 "libobs.show_scene_item.HUD": [],
                 "libobs.show_scene_item.Heroes": [],
                 "libobs.show_scene_item.Heroes widget": [],
                 "libobs.show_scene_item.Resources": [],
                 "libobs.show_scene_item.Total Gold": [],
+                "libobs.show_scene_item.Vertical HUD": [],
                 "libobs.show_scene_item.gold_label": []
             },
             "id": "scene",
@@ -518,7 +554,7 @@
             "push-to-talk-delay": 0,
             "settings": {
                 "custom_size": false,
-                "id_counter": 12,
+                "id_counter": 13,
                 "items": [
                     {
                         "align": 5,
@@ -605,7 +641,7 @@
                             "y": 1.0
                         },
                         "scale_filter": "disable",
-                        "visible": true
+                        "visible": false
                     },
                     {
                         "align": 5,
@@ -663,7 +699,7 @@
                             "y": 1.0
                         },
                         "scale_filter": "disable",
-                        "visible": true
+                        "visible": false
                     },
                     {
                         "align": 5,
@@ -690,6 +726,35 @@
                         "scale": {
                             "x": 0.083482943475246429,
                             "y": 0.083333335816860199
+                        },
+                        "scale_filter": "disable",
+                        "visible": false
+                    },
+                    {
+                        "align": 5,
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "bounds_align": 0,
+                        "bounds_type": 0,
+                        "crop_bottom": 0,
+                        "crop_left": 0,
+                        "crop_right": 0,
+                        "crop_top": 0,
+                        "group_item_backup": false,
+                        "id": 13,
+                        "locked": false,
+                        "name": "Vertical HUD",
+                        "pos": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "private_settings": {},
+                        "rot": 0.0,
+                        "scale": {
+                            "x": 0.92083334922790527,
+                            "y": 0.92124998569488525
                         },
                         "scale_filter": "disable",
                         "visible": true

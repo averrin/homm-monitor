@@ -20,7 +20,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{a35bb743-b246-4b07-b174-92314ff3c933}</ProjectGuid>
+    <ProjectGuid>{C5631E3C-DA89-41FF-B256-08F5DBD071B0}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>H3_DoubleClickShowcase</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>

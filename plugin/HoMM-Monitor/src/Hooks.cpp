@@ -102,7 +102,9 @@ void startReporter() {
 	resetReport();
 	started = true;
 	reporterThread = std::thread(reporterLoop);
-	F_PrintScreenText("Stats reporter started");
+	char buffer[255];
+	sprintf(buffer, "HoMM Monitor started\n{Plugin version: %d}", VERSION);
+	F_PrintScreenText(buffer);
 	return;
 
 }
@@ -110,7 +112,7 @@ void startReporter() {
 void stopReporter() {
 	started = false;
 	reporterThread.join();
-	F_PrintScreenText("Stats reporter stopped");
+	F_PrintScreenText("HoMM Monitor was stopped");
 	resetReport();
 }
 
