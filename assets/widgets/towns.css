@@ -1,6 +1,6 @@
 #towns .spellIcon {
-    width: 30px;
-    height: 20px;
+    width: calc(30px*0.9);
+    height: calc(20px*0.9);
     margin: 0px 1px;
     margin-bottom: -3px;
 }
@@ -14,6 +14,7 @@
 
 .spellsRow {
     margin-bottom: 6px !important;
+    justify-content: center;
 }
 
 .resource {
@@ -48,6 +49,7 @@
 }
 .townInfo {
     min-height: 80px;
+    font-weight: bold;
 }
 
 .townName {
@@ -71,4 +73,8 @@
 
 #townsContainer-1 {
     border-left: 1px solid goldenrod;
+}
+
+.townInfo td {
+    min-width: 175px;
 }

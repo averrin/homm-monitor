@@ -1,3 +1,7 @@
 *.exe
 cursors.*
 dist
+HoMM-Monitor
+*.zip
+*.lock
+vendor

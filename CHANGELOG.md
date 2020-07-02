@@ -9,6 +9,7 @@
 - PDF readme was removed in favor of README.md
 - Apps icons
 - Plugin heartbeat monitor
+- Towns widget fixes
 
 ## 0.5.1/2 -- 30.06.2020
 - New vertical HUD widget

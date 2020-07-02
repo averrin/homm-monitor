@@ -16,6 +16,11 @@ function fillTowns(report, player) {
     report.towns.forEach(town => {
         let item = document.createElement('div');
         item.className = "row townLine";
+
+        let lc = document.createElement('div');
+        lc.className = "column";
+        item.append(lc);
+
         let ava = document.createElement('div');
         ava.className = "townImage";
         ava.style.backgroundImage = `url(/towns/${town.type}.gif)`;
@@ -23,15 +28,18 @@ function fillTowns(report, player) {
             ava.style.backgroundImage = `url(/towns/${town.type}_0.png)`;
         }
         ava.style.borderColor = colors[report.color];
-        item.append(ava);
+        lc.append(ava);
 
-        let townInfo = document.createElement('div');
-        townInfo.className = "townInfo row";
+        let townInfo = document.createElement('table');
+        townInfo.className = "townInfo";
 
-        let c1 = document.createElement('div');
-        c1.className = "column";
-        let c2 = document.createElement('div');
-        c2.className = "column";
+        let row = document.createElement('tr');
+        let c1 = document.createElement('td');
+        let c2 = document.createElement('td');
+
+        row.append(c1);
+        row.append(c2);
+        townInfo.append(row);
 
         let name = document.createElement('div');
         name.className = "townName value";
@@ -40,32 +48,48 @@ function fillTowns(report, player) {
         let army = document.createElement('div');
         army.innerHTML = `Army: <span class='value'>${town.guardsValue}</span>&nbsp&nbsp`;
 
-        c1.append(name);
-        c2.append(army);
+        lc.append(name);
+        c1.append(army);
+
+        row = document.createElement('tr');
+        c1 = document.createElement('td');
+        c2 = document.createElement('td');
+
+        row.append(c1);
+        row.append(c2);
+        townInfo.append(row);
 
         //let lables = ["I", "II", "III", "IV", "V"];
-        for (let index = 0; index < town.spells.length - 2; index++) {
+        for (let index = 0; index < town.spells.length; index++) {
             let spells = document.createElement('div');
-            spells.className = "row spellsRow";
+            spells.className = `row spellsRow gm-${index+1}`;
             //spells.innerHTML = `${lables[index]}&nbsp;`;
-            for (let n = 0; n <town.spells[index].length - 1; n++) {
+            for (let n = 0; n <town.spells[index].length; n++) {
                 const spell = town.spells[index][n];
-                if (spell > 69) continue;
+                if (spell > 69 || spell <= 0) continue;
                 spells.innerHTML += `<img class="spellIcon" src="/spells/${spell}.png">`;
             }
             if (index == 3 && town.spells.length == 5) {
                 //spells.innerHTML = `&nbsp;&nbsp;${lables[index]}&nbsp;`;
-                for (let n = 0; n <town.spells[4].length - 1; n++) {
+                for (let n = 0; n <town.spells[4].length; n++) {
                     const spell = town.spells[4][n];
-                    if (spell > 69) continue;
+                    if (spell > 69 <= 0) continue;
                     spells.innerHTML += `<img class="spellIcon" src="/spells/${spell}.png">`;
                 }
             }
-            [c1, c2][index%2].append(spells);      
+            [c1, c2][index%2].append(spells);
+
+            if (index%2 == 1) {
+                row = document.createElement('tr');
+                c1 = document.createElement('td');
+                c2 = document.createElement('td');
+        
+                row.append(c1);
+                row.append(c2);
+                townInfo.append(row);
+            }
         }
 
-        townInfo.append(c1);
-        townInfo.append(c2);
         
         item.append(townInfo);
         towns.append(item);
