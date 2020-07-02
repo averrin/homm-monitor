@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.6 -- ??
+## 0.6 -- 02.07.2020
 - Better game input detection
 - Added "clean" apm -- without right clicks
 - Added last report fetching for "load match" function
