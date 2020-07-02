@@ -38,12 +38,16 @@ var matchNameLabel *walk.Label
 var matchCreatedLabel *walk.Label
 var matchNameLabel2 *walk.Label
 var matchCreatedLabel2 *walk.Label
+var pluginAliveLabel *walk.Label
 var matchIdInput *walk.LineEdit
 var playerNameInput *walk.LineEdit
 var connectButton *walk.PushButton
 var session *r.Session
 var connected = false
 var versionMismatch = false
+var isPluginAlive = false
+var wasPluginAlive = false
+var heartbeatTimer = time.NewTimer(10 * time.Second)
 
 func wsHandler(c echo.Context) error {
 	websocket.Handler(func(ws *websocket.Conn) {
@@ -56,6 +60,7 @@ func wsHandler(c echo.Context) error {
 				//c.Logger().Error(err)
 			}
 			if msg == "update" {
+				STATE.IsPluginAlive = isPluginAlive
 				state, err := json.Marshal(STATE)
 				if err != nil {
 					panic(err)
@@ -324,6 +329,7 @@ func processReport() {
 	}
 
 	STATE.MaxAPM = int(math.Max(float64(PREV_STATE.MaxAPM), float64(STATE.APM)))
+	STATE.IsPluginAlive = isPluginAlive
 
 	STATE.UpdateTime = time.Now()
 	STATE.ClientVersion = VERSION
@@ -368,15 +374,43 @@ func runServer() {
 
 	resetState()
 
+	go func() {
+		for {
+			<-heartbeatTimer.C
+			isPluginAlive = false
+			heartbeatTimer.Reset(10 * time.Second)
+			if wasPluginAlive {
+				pluginAliveLabel.SetText("Plugin not found")
+				pluginAliveLabel.SetTextColor(walk.RGB(0xee, 0, 0))
+				font := pluginAliveLabel.Font()
+				newFont, _ := walk.NewFont(font.Family(), font.PointSize(), walk.FontBold)
+				pluginAliveLabel.SetFont(newFont)
+			}
+		}
+
+	}()
+
+	e.POST("/heartbeat", func(c echo.Context) error {
+		isPluginAlive = true
+		wasPluginAlive = true
+		heartbeatTimer.Reset(10 * time.Second)
+		pluginAliveLabel.SetText("Plugin detected")
+		pluginAliveLabel.SetTextColor(walk.RGB(0, 0xbb, 0))
+		font := pluginAliveLabel.Font()
+		newFont, _ := walk.NewFont(font.Family(), font.PointSize(), walk.FontBold)
+		pluginAliveLabel.SetFont(newFont)
+		return nil
+	})
+
 	e.POST("/report", func(c echo.Context) error {
 		PREV_STATE = STATE
 		STATE = new(Report)
 		if err := c.Bind(STATE); err != nil {
-			println("ERROR")
-			panic(err)
 			return c.String(http.StatusOK, "error")
 		}
 		c.JSON(http.StatusOK, STATE)
+		isPluginAlive = true
+		wasPluginAlive = true
 		processReport()
 		return nil
 	})
@@ -386,11 +420,11 @@ func runServer() {
 		outTE.SetText("State reseted")
 		return nil
 	})
-	e.Static("/", "./public")
+	e.Static("/", "./assets")
 	e.GET("/ws", wsHandler)
 
 	e.Use(middleware.Logger())
-	//e.Use(middleware.Recover())
+	e.Use(middleware.Recover())
 	e.HideBanner = true
 	e.Logger.Fatal(e.Start("localhost:8989"))
 }
@@ -449,6 +483,7 @@ func main() {
 						Title:  "Main",
 						Layout: VBox{},
 						Children: []Widget{
+							Label{AssignTo: &pluginAliveLabel, Text: "Waiting for plugin...", Background: SolidColorBrush{Color: walk.RGB(0xff, 0xff, 0xff)}},
 							Label{AssignTo: &updateLabel},
 							Label{AssignTo: &clientLabel},
 							Label{AssignTo: &matchNameLabel2},

@@ -1,12 +1,14 @@
 # Changelog
 
 ## 0.6 -- ??
-- Better actions detection
+- Better game input detection
 - Added "clean" apm -- without right clicks
 - Added last report fetching for "load match" function
 - Added missed ironfist of the ogre item icon
 - Widget styles refactoring
 - PDF readme was removed in favor of README.md
+- Apps icons
+- Plugin heartbeat monitor
 
 ## 0.5.1/2 -- 30.06.2020
 - New vertical HUD widget

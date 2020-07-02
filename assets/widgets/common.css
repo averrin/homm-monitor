@@ -3,6 +3,9 @@ body {
     font-weight: bold;
     margin-top: 6px;
 }
+.offline {
+    opacity: 0.3 !important;
+}
 .townImage {
     width: 150px;
     height: 70px;

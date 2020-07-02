@@ -1,4 +1,4 @@
-#include "httplib.h"
+#include "Reporter.hpp"
 #include "Hooks.hpp"
 #include "H3API.hpp"
 using namespace h3;
@@ -11,8 +11,6 @@ using namespace HoMMMonitor;
 #include <thread>
 using namespace std::chrono_literals;
 
-#include <iconvlite.h>
-
 //!!!!! Only for testing !!!!!
 //#include "Cheats.hpp"
 //!!!!! Only for testing !!!!!
@@ -23,9 +21,6 @@ HHOOK g_LowLevelMouseHook = NULL;
 HHOOK g_keyboardHook = NULL;
 HINSTANCE hInstance = NULL;
 
-const auto SERVER = "localhost";
-const int PORT = 8989;
-httplib::Client httpClient(SERVER, PORT);
 const auto refreshRate = 2s;
 
 Patcher *_P;
@@ -43,6 +38,7 @@ std::vector<std::chrono::steady_clock::time_point> clean_actions;
 int clean_apm = 0;
 
 std::shared_ptr<Monitor> monitor;
+auto reporter = std::make_shared<Reporter>();
 uintptr_t _main = 0;
 std::string _tn = "";
 
@@ -111,10 +107,6 @@ void checkAPM() {
 	clean_actions = c_clicks;
 }
 
-void resetReport() {
-	httpClient.Post("/reset", "", "application/json");
-}
-
 void reporterLoop() {
 	while (started) {
 		if (_tn == "") {
@@ -122,7 +114,7 @@ void reporterLoop() {
 		}
 		else if (_tn != std::string(H3Internal::Main()->towns[0].name.String())) {
 			_tn = "";
-			resetReport();
+			reporter->Reset();
 		}
 
 		if (monitor->playerId != H3Internal::Main()->GetPlayerID()) {
@@ -154,17 +146,28 @@ void reporterLoop() {
 			F_PrintScreenText(buffer);
 #endif
 
-			std::string ns = picojson::convert::to_string(new_state);
-			auto res = httpClient.Post("/report", cp2utf(ns), "application/json; charset=utf-8");
-			
+			auto res = reporter->Send(new_state);
+
 #ifdef NOTIFY_SEND
-			F_PrintScreenText(ns.c_str());
-			F_PrintScreenText("State sent");
+			if (!res || (res && res->status != 200)) {
+				F_PrintScreenText("report failed");
+			}
+			else {
+				F_PrintScreenText(ns.c_str());
+				F_PrintScreenText("State sent");
+			}
 #endif
 
 		}		
 
 		checkAPM();
+
+		auto res = reporter->SendHeartbeat();
+#ifdef NOTIFY_SEND
+		if (!res || (res && res->status != 200)) {
+			F_PrintScreenText("pulse failed");
+		}
+#endif
 
 		std::this_thread::sleep_for(refreshRate);
 	}
@@ -174,7 +177,7 @@ void startReporter() {
 	actionsCounter = 0;
 	actions.clear();
 	monitor = std::make_shared<Monitor>(P_ActivePlayer->ownerID);
-	resetReport();
+	reporter->Reset();
 	started = true;
 	reporterThread = std::thread(reporterLoop);
 	char buffer[255];
@@ -190,7 +193,7 @@ void stopReporter() {
 	UnhookWindowsHookEx(g_keyboardHook);
 	UnhookWindowsHookEx(g_LowLevelMouseHook);
 	F_PrintScreenText("HoMM Monitor was stopped");
-	resetReport();
+	reporter->Reset();
 }
 
 int __stdcall _HH_KeyPressed(HiHook* h, H3AdventureManager* This, H3Msg* msg, int a3, int a4, int a5)
@@ -204,9 +207,10 @@ int __stdcall _HH_KeyPressed(HiHook* h, H3AdventureManager* This, H3Msg* msg, in
 			stopReporter();
 		}
 	}
+
 	/*
 	if (msg->KeyPressed() == NH3VKey::H3VK_F5) {
-		setInputHooks();
+		reporter->Send(monitor->GetState());
 	}
 	*/
 

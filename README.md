@@ -8,6 +8,7 @@ This is a software for gathering data from your HoMM3 game and showing it in OBS
 - Server. It's the central part of this program. Here we store your data, calculate analytics, and serving it for OBS.
 - Widgets. When you want to show some data in OBS you need to add some source. And you may want to display different data in different places. So, there are a couple of predifined "widgets" to make it possible. Widget is a simple html page that can be displayed by "Browser" source in OBS.
 
+![create match](https://github.com/averrin/homm-monitor/raw/master/screenshots/commentator_huds.png)
 ![create match](https://github.com/averrin/homm-monitor/raw/master/screenshots/player_huds.png)
 
 ## How to use it?
@@ -18,7 +19,7 @@ Go to [Releases page](https://github.com/averrin/homm-monitor/releases) and down
 
 ### Start server
 
-Just double click on "HoMM-Monitor\comentator.exe"
+Just double click on "HoMM-Monitor\commentator.exe"
 
 ### Create match
 
@@ -101,3 +102,6 @@ There are three possible ways to fix "something" without restarting everything.
 - [MS Studio](https://msstudio.tv/)
 - [RedWhait](https://www.twitch.tv/redwhait)
 - [DontCallMeChris](https://www.twitch.tv/dontcallmechris)
+
+- [HDMod](https://sites.google.com/site/heroes3hd/)
+- Icons by [Freepik](https://www.flaticon.com/authors/freepik)

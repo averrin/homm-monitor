@@ -179,6 +179,7 @@ type Report struct {
 
 	Version       int    `json:"version"`
 	ClientVersion string `json:"clientVersion"`
+	IsPluginAlive bool   `json:"isPluginAlive"`
 }
 
 type HeroStore struct {

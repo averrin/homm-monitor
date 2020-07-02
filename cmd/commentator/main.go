@@ -145,7 +145,7 @@ func wsHandler(c echo.Context) error {
 
 func runServer() {
 	e := echo.New()
-	e.Static("/", "./public")
+	e.Static("/", "./assets")
 	e.GET("/ws", wsHandler)
 
 	e.Use(middleware.Logger())

@@ -7,6 +7,12 @@ function hasSpell(report, player, eid, flag) {
 let colors = ["red", "blue", "biege", "green", "orange", "purple", "teal", "pink"];
 
 function fillHUD(player, report) {
+    if (report.isPluginAlive) {
+        player.classList.remove("offline");
+    } else {
+        player.classList.add("offline");
+    }
+    
     player.querySelector(".heroImage").style.backgroundImage = `url(/heroes/${report.startHero}.png)`;
     player.querySelector(".townImage").style.backgroundImage = `url(/towns/${report.startTown.type}.gif)`;    
     

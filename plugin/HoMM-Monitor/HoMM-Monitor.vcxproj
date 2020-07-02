@@ -166,9 +166,11 @@
     <ClCompile Include="src\iconvlite.cpp" />
     <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\Monitor.cpp" />
+    <ClCompile Include="src\Reporter.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Hooks.hpp" />
+    <ClInclude Include="include\Reporter.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\H3API\H3API.vcxproj">
