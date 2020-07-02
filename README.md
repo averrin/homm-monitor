@@ -8,7 +8,7 @@ This is a software for gathering data from your HoMM3 game and showing it in OBS
 - Server. It's the central part of this program. Here we store your data, calculate analytics, and serving it for OBS.
 - Widgets. When you want to show some data in OBS you need to add some source. And you may want to display different data in different places. So, there are a couple of predifined "widgets" to make it possible. Widget is a simple html page that can be displayed by "Browser" source in OBS.
 
-![create match](https://github.com/averrin/homm-monitor/raw/master/screenshots/commentator_huds.png)
+![create match](https://github.com/averrin/homm-monitor/raw/master/screenshots/commentator_hud.png)
 ![create match](https://github.com/averrin/homm-monitor/raw/master/screenshots/player_huds.png)
 
 ## How to use it?
