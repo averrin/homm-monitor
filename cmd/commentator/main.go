@@ -1,3 +1,4 @@
+//go:generate goversioninfo -icon=../../resources/crystal-ball.ico -manifest=./commentator.exe.manifest
 package main
 
 import (
@@ -12,6 +13,8 @@ import (
 	"golang.org/x/net/websocket"
 	r "gopkg.in/rethinkdb/rethinkdb-go.v6"
 
+	. "github.com/averrin/homm-monitor/pkg/etc"
+	. "github.com/averrin/homm-monitor/pkg/structs"
 	"github.com/lxn/walk"
 	. "github.com/lxn/walk/declarative"
 )
@@ -155,14 +158,16 @@ func main() {
 	REPORTS = map[int]Report{}
 	var err error
 	session, err = r.Connect(r.ConnectOpts{
-		Address:  url,
+		Address:  URL,
 		Database: "homm_monitor_games",
 	})
 	if err != nil {
 		log.Fatalln(err)
 	}
 
+	var appIcon, _ = walk.NewIconFromResourceId(2)
 	mw := MainWindow{
+		Icon:   appIcon,
 		Title:  fmt.Sprintf("HoMM Monitor v%s (Commentator)", VERSION),
 		Size:   Size{500, 400},
 		Layout: VBox{},

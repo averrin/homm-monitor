@@ -1,4 +1,4 @@
-package main
+package etc
 
 var (
 	ADJECTIVES = []string{"autumn", "hidden", "bitter", "misty", "silent", "empty", "dry", "dark", "summer",

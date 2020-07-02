@@ -1,3 +1,4 @@
+//go:generate goversioninfo -icon=../../resources/magic-ball.ico -manifest=./player.exe.manifest
 package main
 
 import (
@@ -19,6 +20,9 @@ import (
 	"github.com/lxn/walk"
 	. "github.com/lxn/walk/declarative"
 	r "gopkg.in/rethinkdb/rethinkdb-go.v6"
+
+	. "github.com/averrin/homm-monitor/pkg/homm"
+	. "github.com/averrin/homm-monitor/pkg/structs"
 )
 
 var PREV_STATE *Report
@@ -394,7 +398,7 @@ func runServer() {
 func ConnectToMatch(matchId string, playerName string) {
 	var err error
 	session, err = r.Connect(r.ConnectOpts{
-		Address:  url,
+		Address:  URL,
 		Database: "homm_monitor_games",
 	})
 	if err != nil {
@@ -431,8 +435,10 @@ func ConnectToMatch(matchId string, playerName string) {
 }
 
 func main() {
+	var appIcon, _ = walk.NewIconFromResourceId(2)
 	mw_ := MainWindow{
 		AssignTo: &mw,
+		Icon:     appIcon,
 		Title:    fmt.Sprintf("HoMM Monitor v%s (Player)", VERSION),
 		Size:     Size{500, 600},
 		Layout:   VBox{},

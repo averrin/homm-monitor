@@ -6,6 +6,7 @@
 - Added last report fetching for "load match" function
 - Added missed ironfist of the ogre item icon
 - Widget styles refactoring
+- PDF readme was removed in favor of README.md
 
 ## 0.5.1/2 -- 30.06.2020
 - New vertical HUD widget

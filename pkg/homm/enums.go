@@ -1,4 +1,4 @@
-package main
+package homm
 
 const (
 	SPELLBOOK                      = 0

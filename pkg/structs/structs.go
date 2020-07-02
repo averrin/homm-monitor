@@ -1,10 +1,10 @@
-package main
+package structs
 
 import "time"
 
 var VERSION = "0.6"
 var PLUGIN_VERSION = 6
-var url = "161.35.209.12:28015"
+var URL = "161.35.209.12:28015"
 
 type Coords struct {
 	X int `json:"x"`
