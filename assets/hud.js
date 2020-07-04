@@ -25,6 +25,7 @@ function fillHUD(player, report) {
     player.querySelector("#apm .value").innerText = `${report.apm} / ${report.cleanApm} (${report.maxApm})`;
     player.querySelector("#tmp .value").innerText = report.totalMPSpent;
     player.querySelector("#av .value").innerText = report.armyValue;
+    player.querySelector("#avl .value").innerText = report.armyValueLost;
 
     hasItem(report, player, "#wings", "hasWings");
     hasItem(report, player, "#spellbinders_hat", "hasSpellbindersHat");

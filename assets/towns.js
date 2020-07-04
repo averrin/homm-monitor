@@ -46,10 +46,26 @@ function fillTowns(report, player) {
         name.innerText = town.name;
        
         let army = document.createElement('div');
-        army.innerHTML = `Army: <span class='value'>${town.guardsValue}</span>&nbsp&nbsp`;
+        army.innerHTML = `Army: <span class='value'>${town.guardsValue}</span>&nbsp;&nbsp;`;
 
         lc.append(name);
         c1.append(army);
+
+        c2.innerHTML = `<img class="regmIcon" src="/regm.png">`;
+        let hasResearch = false;
+        let lables = ["I", "II", "III", "IV", "V"];
+        if (town.gmResearch) {
+            for (let index = 0; index < 5; index++) {
+                if (town.gmResearch[index] != 0) {
+                    c2.innerHTML += `<span>${lables[index]}: <span class='value'>${town.gmResearch[index]}</span></span>&nbsp;`;
+                    hasResearch = true;
+                }
+            }
+        }
+
+        if (!hasResearch) {
+            c2.innerHTML = "";
+        }
 
         row = document.createElement('tr');
         c1 = document.createElement('td');
@@ -59,7 +75,7 @@ function fillTowns(report, player) {
         row.append(c2);
         townInfo.append(row);
 
-        //let lables = ["I", "II", "III", "IV", "V"];
+
         for (let index = 0; index < town.spells.length; index++) {
             let spells = document.createElement('div');
             spells.className = `row spellsRow gm-${index+1}`;

@@ -39,7 +39,6 @@ int clean_apm = 0;
 
 std::shared_ptr<Monitor> monitor;
 auto reporter = std::make_shared<Reporter>();
-uintptr_t _main = 0;
 std::string _tn = "";
 
 LRESULT CALLBACK LowLevelMouseProc(int code, WPARAM wParam, LPARAM lParam)
@@ -109,17 +108,19 @@ void checkAPM() {
 
 void reporterLoop() {
 	while (started) {
+		auto main = H3Internal::Main();
+
+		if (!main || monitor->playerId != main->GetPlayerID() || main->towns.Count() == 0) {
+			std::this_thread::sleep_for(refreshRate);
+			continue;
+		}
+
 		if (_tn == "") {
-			_tn = std::string(H3Internal::Main()->towns[0].name.String());
+			_tn = std::string(main->towns[0].name.String());
 		}
 		else if (_tn != std::string(H3Internal::Main()->towns[0].name.String())) {
 			_tn = "";
 			reporter->Reset();
-		}
-
-		if (monitor->playerId != H3Internal::Main()->GetPlayerID()) {
-			std::this_thread::sleep_for(refreshRate);
-			continue;
 		}
 
 		auto prev_state = monitor->GetState();

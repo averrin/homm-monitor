@@ -1,5 +1,6 @@
 function fillHeroes(report, player) {
     player.querySelector("#heroesCount").innerText = `${report.heroesCount}`;
+    player.querySelector("#heroesHired").innerText = `${report.heroesHired}`;
     player.querySelector("#mpSpent").innerText = `${report.totalMPSpent}`;
     player.querySelector("#expEarned").innerText = `${report.totalExp}`;
 

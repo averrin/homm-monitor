@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.7 -- 04.07.2020
+- Added heuristic GM research (when you change spell in GM) count
+- Added armyValueLost & heroesHired fields
+- Fixed: crash on host restart during sim turns
+
 ## 0.6 -- 02.07.2020
 - Better game input detection
 - Added "clean" apm -- without right clicks

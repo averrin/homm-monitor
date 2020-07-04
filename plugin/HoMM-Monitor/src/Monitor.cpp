@@ -87,33 +87,40 @@ std::vector<Town> Monitor::iterateTowns() {
 	return towns;
 }
 
-void Monitor::Update() {
-		auto heroes = iterateHeroes();
-		auto towns = iterateTowns();
+Combat Monitor::getCombat() {
+	Combat currentCombat{};
 
-		auto main = H3Internal::Main();
-		auto player = main->GetPlayer();
-
-		Combat currentCombat{};
-		
-		auto c = H3Internal::CombatManager();
-		if (!c->finished) {
-			if (c->hero[0] && c->hero[0]->owner == playerId && c->army[1]) {
-				currentCombat.hero = c->hero[0]->id;
-				currentCombat.heroArmyValue = c->hero[0]->GetPower();
-				currentCombat.enemyArmyValue = c->army[1]->GetArmyValue();
-			}
-			else if (c->hero[0] && c->hero[1] && c->hero[1]->owner == playerId && c->army[1]) {
-				currentCombat.hero = c->hero[1]->id;
-				currentCombat.heroArmyValue = c->hero[1]->GetPower();
-				currentCombat.enemyArmyValue = c->hero[0]->GetPower();
-			}
+	auto c = H3Internal::CombatManager();
+	if (c && !c->finished) {
+		if (c->hero[0] && c->hero[0]->owner == playerId && c->army[1]) {
+			currentCombat.hero = c->hero[0]->id;
+			currentCombat.heroArmyValue = c->hero[0]->GetPower();
+			currentCombat.enemyArmyValue = c->army[1]->GetArmyValue();
 		}
+		else if (c->hero[0] && c->hero[1] && c->hero[1]->owner == playerId && c->army[1]) {
+			currentCombat.hero = c->hero[1]->id;
+			currentCombat.heroArmyValue = c->hero[1]->GetPower();
+			currentCombat.enemyArmyValue = c->hero[0]->GetPower();
+		}
+	}
+	return currentCombat;
+}
 
-		
-		auto map = H3Internal::AdventureManager()->map;
-		std::vector<int> visionS;
-		std::vector<int> visionU;
+Map HoMMMonitor::Monitor::getMap()
+{
+	auto main = H3Internal::Main();
+	auto player = main->GetPlayer();
+	auto am = H3Internal::AdventureManager();
+	std::vector<int> visionS;
+	std::vector<int> visionU;
+	int mapSize = 0;
+	auto mapName = "Unknown";
+	int sl = 0;
+	
+	
+	if (am && am->map && am->map->mapSize > 0) {
+		auto map = am->map;
+
 		for (size_t x = 0; x < map->mapSize; x++)
 		{
 			for (size_t y = 0; y < map->mapSize; y++)
@@ -124,12 +131,70 @@ void Monitor::Update() {
 				}
 			}
 		}
+		
+		// mapName = main->mapName.String();
+		mapSize = map->mapSize;
+		sl = map->SubterraneanLevel;
+
+	}
+	
+
+	return {
+		mapName,
+		mapSize,
+		sl,
+		visionS,
+		visionU
+	};
+}
+
+Resources HoMMMonitor::Monitor::getResources()
+{
+	auto main = H3Internal::Main();
+	auto player = main->GetPlayer();
+	return {
+		player->playerResources.gold,
+		player->playerResources.wood,
+		player->playerResources.mercury,
+		player->playerResources.ore,
+		player->playerResources.sulfur,
+		player->playerResources.crystal,
+		player->playerResources.gems
+	};
+}
+
+void Monitor::Update() {
+		auto main = H3Internal::Main();
+		if (!main) return;
+		auto player = main->GetPlayer();
+		if (!player) return;
+		auto am = H3Internal::AdventureManager();
+		if (!am) return;
+
+		std::vector<Hero> heroes;
+		std::vector<Town> towns;
+		Combat currentCombat;
+		Resources resources;
+		Map map;
+
+		heroes = iterateHeroes();
+		towns = iterateTowns();
+		currentCombat = getCombat();
+		resources = getResources();
+		map = getMap();
 		prev_state = {
-			{player->playerResources.gold, player->playerResources.wood, player->playerResources.mercury, player->playerResources.ore, player->playerResources.sulfur,
-			player->playerResources.crystal, player->playerResources.gems},
-			{main->mapName.String(), map->mapSize, map->SubterraneanLevel, visionS, visionU},
-			player->townsCount, player->visitedObelisks, main->obeliskCount, player->ownerID,
-			main->date.month, main->date.week, main->date.day, int(heroes.size()), heroes, towns, 
+			resources,
+			map,
+			player->townsCount, 
+			player->visitedObelisks, 
+			main->obeliskCount, 
+			player->ownerID,
+			main->date.month, 
+			main->date.week, 
+			main->date.day, 
+			int(heroes.size()), 
+			heroes, 
+			towns, 
 			0, 0, 0, 0,
 			currentCombat
 		};

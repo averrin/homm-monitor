@@ -49,6 +49,15 @@ var isPluginAlive = false
 var wasPluginAlive = false
 var heartbeatTimer = time.NewTimer(10 * time.Second)
 
+func Equal(a, b []int) bool {
+	for i, v := range a {
+		if v != 0 && v < 69 && v != b[i] {
+			return false
+		}
+	}
+	return true
+}
+
 func wsHandler(c echo.Context) error {
 	websocket.Handler(func(ws *websocket.Conn) {
 		defer ws.Close()
@@ -300,9 +309,7 @@ func processReport() {
 
 		STATE.ArmyValue += h.ArmyValue
 		for _, t := range STATE.Towns {
-			fmt.Printf("%d == %d\n", t.GarrisonHero, h.Id)
 			if t.GarrisonHero == h.Id {
-				fmt.Println("in garr")
 				h.InGarrison = true
 			}
 		}
@@ -315,6 +322,25 @@ func processReport() {
 			STATE.HUD.HasGrail = true
 		}
 		STATE.ArmyValue += t.GuardsValue
+
+		for _, ot := range PREV_STATE.Towns {
+			if t.Name == ot.Name {
+				t.GMResearch = ot.GMResearch
+				if t.GMResearch == nil {
+					t.GMResearch = map[int]int{0: 0, 1: 0, 2: 0, 3: 0, 4: 0}
+				}
+				for l, spells := range t.Spells {
+					if len(ot.Spells) > l && !Equal(ot.Spells[l], spells) {
+						if r, ok := t.GMResearch[l]; ok {
+							t.GMResearch[l] = r + 1
+						} else {
+							t.GMResearch[l] = 1
+						}
+					}
+				}
+				break
+			}
+		}
 	}
 
 	if PREV_STATE.StartHero == -1 && len(STATE.Heroes) > 0 {
@@ -328,6 +354,15 @@ func processReport() {
 		STATE.StartTown = PREV_STATE.StartTown
 	}
 
+	STATE.ArmyValueLost = PREV_STATE.ArmyValueLost
+	if STATE.ArmyValue < PREV_STATE.ArmyValue {
+		STATE.ArmyValueLost += PREV_STATE.ArmyValue - STATE.ArmyValue
+	}
+
+	STATE.HeroesHired = PREV_STATE.HeroesHired
+	if STATE.HeroesCount > PREV_STATE.HeroesCount {
+		STATE.HeroesHired += STATE.HeroesCount - PREV_STATE.HeroesCount
+	}
 	STATE.MaxAPM = int(math.Max(float64(PREV_STATE.MaxAPM), float64(STATE.APM)))
 	STATE.IsPluginAlive = isPluginAlive
 
@@ -424,7 +459,7 @@ func runServer() {
 	e.GET("/ws", wsHandler)
 
 	e.Use(middleware.Logger())
-	e.Use(middleware.Recover())
+	//e.Use(middleware.Recover())
 	e.HideBanner = true
 	e.Logger.Fatal(e.Start("localhost:8989"))
 }

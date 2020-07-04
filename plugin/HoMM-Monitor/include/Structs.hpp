@@ -3,7 +3,7 @@
 #include "picojson_serializer.h"
 #include "picojson_vector_serializer.h"
 
-#define VERSION 6
+#define VERSION 7
 
 namespace HoMMMonitor {
 	struct Combat {

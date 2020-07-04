@@ -2,8 +2,8 @@ package structs
 
 import "time"
 
-var VERSION = "0.6"
-var PLUGIN_VERSION = 6
+var VERSION = "0.7"
+var PLUGIN_VERSION = 7
 var URL = "161.35.209.12:28015"
 
 type Coords struct {
@@ -27,6 +27,8 @@ type Town struct {
 	GarrisonHero int  `json:"garrisonHero"`
 	VisitingHero int  `json:"visitingHero"`
 	HasFort      bool `json:"hasFort"`
+
+	GMResearch map[int]int `json:"gmResearch"`
 }
 
 type Item struct {
@@ -155,11 +157,13 @@ type Report struct {
 	HeroesCount int     `json:"heroesCount"`
 	Heroes      []*Hero `json:"heroes"`
 	StartHero   int     `json:"startHero"`
+	HeroesHired int     `json:"heroesHired"`
 
 	Towns     []*Town `json:"towns"`
 	StartTown Town    `json:"startTown"`
 
-	ArmyValue int `json:"armyValue"`
+	ArmyValue     int `json:"armyValue"`
+	ArmyValueLost int `json:"armyValueLost"`
 
 	Actions      int `json:"actions"`
 	APM          int `json:"apm"`

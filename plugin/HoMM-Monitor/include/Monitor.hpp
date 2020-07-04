@@ -20,6 +20,9 @@ namespace HoMMMonitor {
 	private:
 		std::vector<Hero> iterateHeroes();
 		std::vector<Town> iterateTowns();
+		Combat getCombat();
+		Map getMap();
+		Resources getResources();
 
 	private:
 		State prev_state;
